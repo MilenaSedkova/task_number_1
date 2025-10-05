@@ -55,4 +55,24 @@ static int InputOfNumber()
         return number;
     }while(true);
 }
-
+static string InputOfOperation()
+{
+    string input;
+    char symbol;
+    do
+    {
+        input = Console.ReadLine();
+        if (string.IsNullOrEmpty(input))
+        {
+            Console.WriteLine("Ошибка! вы ничего не ввели, попробуйте еще раз");
+            continue;
+        }
+        symbol = input[0];
+        if (symbol != '+' && symbol != '-' && symbol != '*' && symbol != '/')
+        {
+            Console.WriteLine("Ошибка! Вы ввели не правильную арифметическую операцию, попробуйте еще раз");
+            continue;
+        }
+        return input;
+    } while (true);
+}
