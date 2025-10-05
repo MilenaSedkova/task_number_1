@@ -11,17 +11,17 @@ do
     {
         case "+":
             double result1 = firstNumber + secondNumber;
-            Console.WriteLine(result1);
+            Console.WriteLine($"Результат: {result1}");
             break;
 
         case "-":
             double result2 = firstNumber - secondNumber;
-            Console.WriteLine(result2);
+            Console.WriteLine($"Результат: {result2}");
             break;
 
         case "*":
             double result3 = firstNumber * secondNumber;
-            Console.WriteLine(result3);
+            Console.WriteLine($"Результат: {result3}");
             break;
         case "/":
             if (secondNumber == 0)
@@ -31,13 +31,13 @@ do
             else
             {
                 double result4 = firstNumber / secondNumber;
-                Console.WriteLine(result4);
+                Console.WriteLine($"Результат: {result4}");
             }
             break;
     }
-
-    choice = Console.ReadLine().Trim().ToLower();
-} while (choice == "Да");
+    Console.WriteLine("Хотите ли Вы выполнить еще одну операцию?(да/нет)");
+    choice = Console.ReadLine().ToLower().Trim();
+} while (choice == "да");
 Console.WriteLine("Нажмите любую клавишу для выхода из калькулятора");
 
 static int InputOfNumber()
