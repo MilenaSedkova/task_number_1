@@ -4,30 +4,35 @@ do
     Console.WriteLine("Введите первое число");
     double firstNumber = InputOfNumber();
     Console.WriteLine("Введите арифметическую операцию(+, -, /, *)");
-    char symbol = char.Parse(Console.ReadLine());
+    string symbol = InputOfOperation();
     Console.WriteLine("Введите второе число");
-    double secondNumber = InputOfNumber();
-
-   
+    double secondNumber = InputOfNumber();  
     switch (symbol)
     {
-        case '+':
+        case "+":
             double result1 = firstNumber + secondNumber;
             Console.WriteLine(result1);
             break;
 
-        case '-':
+        case "-":
             double result2 = firstNumber - secondNumber;
             Console.WriteLine(result2);
             break;
 
-        case '*':
+        case "*":
             double result3 = firstNumber * secondNumber;
             Console.WriteLine(result3);
             break;
-        case '/':
-            double result4 = firstNumber / secondNumber;
-            Console.WriteLine(result4);
+        case "/":
+            if (secondNumber == 0)
+            {
+                DivisionByZero(secondNumber);
+            }
+            else
+            {
+                double result4 = firstNumber / secondNumber;
+                Console.WriteLine(result4);
+            }
             break;
     }
 
