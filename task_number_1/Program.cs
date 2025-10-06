@@ -13,23 +13,18 @@ do
     switch (symbol)
     {
         case "+":
-            double result1 = firstNumber + secondNumber;
-            Console.WriteLine($"Результат: {result1}");
+            calculate.Plus(firstNumber, secondNumber);
             break;
 
         case "-":
-            double result2 = firstNumber - secondNumber;
-            Console.WriteLine($"Результат: {result2}");
+            calculate.Minus(firstNumber, secondNumber);
             break;
 
         case "*":
-            double result3 = firstNumber * secondNumber;
-            Console.WriteLine($"Результат: {result3}");
+           calculate.Multiply(firstNumber, secondNumber);
             break;
         case "/":
-            
-                double result4 = firstNumber / secondNumber;
-                Console.WriteLine($"Результат: {result4}");           
+            calculate.Division(firstNumber, secondNumber);        
             break;
     }
     Console.WriteLine("Хотите ли Вы выполнить еще одну операцию?(да/нет)");
