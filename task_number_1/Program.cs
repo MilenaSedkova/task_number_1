@@ -81,14 +81,10 @@ static string InputOfOperation()
         return input;
     } while (true);
 }
-static double DivisionByZero(double second)
+static void DivisionByZero(double second)
 {
-    do
+    if (second == 0)
     {
-        if (second == 0)
-        {
-            Console.WriteLine("Ошибка! Делить на ноль нельзя!");
-        }
-        return second;
-    } while (second == 0);
+        Console.WriteLine("Ошибка! На ноль делить нельзя!");
+    }
 }
