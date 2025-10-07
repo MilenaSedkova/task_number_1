@@ -9,33 +9,32 @@ do
     {
         case "+":
             double result1=calculate.Plus(firstNumber, secondNumber);
-            Console.WriteLine($"Результат: {result1}");
+            InputOutPut.OutPutOfResult(result1);
             break;
 
         case "-":
             double result2=calculate.Minus(firstNumber, secondNumber);
-            Console.WriteLine($"Результат: {result2}");
+            InputOutPut.OutPutOfResult(result2);
             break;
 
         case "*":
            double result3=calculate.Multiply(firstNumber, secondNumber);
-            Console.WriteLine($"Результат: {result3}");
+            InputOutPut.OutPutOfResult(result3);
             break;
         case "/":
             double result4=calculate.Division(firstNumber, secondNumber);
             if (secondNumber == 0)
             {
-                Console.WriteLine("Попробуйте еще раз");
+                InputOutPut.OutPutTryAgain();   
             }
             else
             {
-                Console.WriteLine($"Результат: {result4}");
+                InputOutPut.OutPutOfResult(result4);
             }
             break;
     }
 } while (InputOutPut.AskToContinue());
-Console.WriteLine("Нажмите любую клавишу для выхода из калькулятора");
-
+InputOutPut.GoOut();
 public class InputOutput
 {
     public double InputOfNumber()
@@ -82,13 +81,31 @@ public class InputOutput
             return input;
         } while (true);
     }
+    public void OutPutOfResult(double result)
+    {
+        Console.WriteLine($"Результат: {result}");
+    }
+    public void OutPutTryAgain()
+    {
+        Console.WriteLine("Попробуйте еще раз");
+    }
+    public void GoOut()
+    {
+        Console.WriteLine("Нажмите любую клавишу для выхода из калькулятора");
+    }
+    public void Mistake()
+    {
+
+        Console.WriteLine("Ошибка! Делить на ноль нельзя!");
+    }
     public bool AskToContinue()
     {
         while (true)
         {
             Console.WriteLine("Хотите ли вы провести еще одну оперцию?");
             string choice = Console.ReadLine().ToLower().Trim();
-            if(choice == "да")
+            const string wantsToContinue = "да";
+            if(choice == wantsToContinue)
             {
                 return true;
             }
@@ -102,6 +119,7 @@ public class InputOutput
 
 public class Calculate
 {
+    InputOutput output= new InputOutput();
     public double Plus(double a, double b)
     {
 
@@ -119,7 +137,7 @@ public class Calculate
     {
         if (b == 0)
         {
-            Console.WriteLine("Ошибка! Делить на ноль нельзя!");
+            output.Mistake();   
         }
         return a / b;
     }
