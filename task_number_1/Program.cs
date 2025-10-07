@@ -1,13 +1,9 @@
 ﻿InputOutput InputOutPut = new InputOutput();
 Calculate calculate=new Calculate();
 do
-{
-    
-    Console.WriteLine("Введите первое число");
+{  
     double firstNumber = InputOutPut.InputOfNumber();
-    Console.WriteLine("Введите арифметическую операцию(+, -, /, *)");
     string symbol = InputOutPut.InputOfOperation();
-    Console.WriteLine("Введите второе число");
     double secondNumber = InputOutPut.InputOfNumber();
     switch (symbol)
     {
@@ -45,16 +41,18 @@ public class InputOutput
     public double InputOfNumber()
     {
         string input;
-        int number = 0;
+        string input2;
+        double number = 0;
         do
         {
+            Console.WriteLine("Введите число");
             input = Console.ReadLine();
             if (string.IsNullOrEmpty(input))
             {
                 Console.WriteLine("Ошибка! Вы ничего не ввели, попробуйте еще раз");
                 continue;
             }
-            if (!int.TryParse(input, out number))
+            if (!double.TryParse(input, out number))
             {
                 Console.WriteLine("Ошибка! Вы ввели не число, попробуйте еще раз");
                 continue;
@@ -68,6 +66,7 @@ public class InputOutput
         char symbol;
         do
         {
+            Console.WriteLine("Введите арифметическую операцию(+, -, /, *)");
             input = Console.ReadLine();
             if (string.IsNullOrEmpty(input))
             {
@@ -106,7 +105,7 @@ public class Calculate
     public double Plus(double a, double b)
     {
 
-        return a * b;
+        return a + b;
     }
     public double Minus(double a, double b)
     {
